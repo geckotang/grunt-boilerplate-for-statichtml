@@ -1,0 +1,27 @@
+/*
+# list
+
+汎用的なリストです
+*/
+@import "compass";
+
+/*
+# list
+
+```
+<ul class="mod-list">
+	<li>ListList</li>
+</ul>
+<ul class="mod-list">
+	<li>ListList</li>
+</ul>
+```
+
+*/
+
+.mod-list {
+	@include border-radius(5px);
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #000;
+}

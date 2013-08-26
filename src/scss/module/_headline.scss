@@ -1,0 +1,21 @@
+/*
+# Headline
+
+汎用的な見出しです
+*/
+@import 'compass';
+
+/*
+# Headline1
+
+```
+<h1 class="mod-headline-1">見出し１</h1>
+```
+
+*/
+
+.mod-headline-1 {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	@include background-image(linear-gradient(top, #fff, #eee));
+}
