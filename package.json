@@ -5,17 +5,18 @@
   "main": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:geckotang/grunt-boilerplate-for-statichtml.git"
   },
   "author": "@geckotang",
   "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "~0.4.1",
     "matchdep": "*",
+    "styledocco": "~0.6.3"
     "grunt-contrib-watch": "*",
     "grunt-compass-multiple": "~0.2.1",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-styleguide": "~0.2.6"
-  },
-  "dependencies": {}
+    "grunt-styleguide": "~0.2.6",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
 }
