@@ -16,10 +16,9 @@ module.exports = function(grunt){
             name: 'styledocco'
           },
           name: 'Project Name',
-          // プレビューエリア用のcssやjs(インラインで埋め込まれる)
           template: {
-            include: ['src/doc-preview.js']
-          }
+           include: ['src/doc-preview.js']
+          },
         },
         files: {
           'docs': 'src/scss/**/*.scss'
@@ -38,7 +37,7 @@ module.exports = function(grunt){
     },
     // watch some files status
     watch: {
-      app: {
+      css: {
         files: ['src/scss/**/*.scss'],
         tasks: ['compassMultiple']
       }
