@@ -8,67 +8,68 @@ module.exports = function(grunt){
   // init config
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // concat javascripts
-    concat: {
-      scripts: {
-        src: [
-          'common/js/src/vendor/jquery.min.js',
-          'common/js/src/script.min.js'
-        ],
-        dest: 'common/js/all.js'
-      }
+    globals: {
+      assetDir: 'common'
     },
     // minify javascripts
     uglify: {
       scripts: {
         options: {
-          preserveComments: 'some'
+          preserveComments: 'some',
+          banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
-        dist: {
-          src: [
-              'common/js/src/file1.js',
-              'common/js/src/file2.js',
-              'common/js/src/file3.js'
-            ],
-          dest: 'common/js/script.min.js'
-        }
+        src: [
+          '<%= globals.assetDir %>/js/src/file1.js',
+          '<%= globals.assetDir %>/js/src/file2.js',
+          '<%= globals.assetDir %>/js/src/file3.js'
+        ],
+        dest: '<%= globals.assetDir %>/js/src/script.min.js'
+      }
+    },
+    // concat javascripts
+    concat: {
+      scripts: {
+        src: [
+          '<%= globals.assetDir %>/js/vendor/jquery-1.10.2.min.js',
+          '<%= uglify.scripts.dest %>'
+        ],
+        dest: '<%= globals.assetDir %>/js/all.js'
       }
     },
     // build stylesheet docs
     styleguide: {
       styledocco: {
         options: {
+          name: 'Project Name',
           framework: {
             name: 'styledocco'
           },
-          name: 'Project Name',
           template: {
-           include: ['common/css/src/doc-preview.js']
+           include: ['<%= globals.assetDir %>/css/src/doc-preview.js']
           },
         },
-        files: {
-          'common-docs': 'common/css/src/**/*.scss'
-        }
+        src: '<%= globals.assetDir %>/css/src/**/*.scss',
+        dest: '<%= globals.assetDir %>-docs'
       }
     },
     // clean document directory
-    clean: ['common-docs'],
+    clean: ['<%= styleguide.styledocco.dest %>'],
     // compile scss to css
     compassMultiple: {
       options: {
-        config: 'common/css/src/config.rb',
-        sassDir: 'common/css/src/'
+        config: '<%= globals.assetDir %>/css/src/config.rb',
+        sassDir: '<%= globals.assetDir %>/css/src/'
       },
       common: {}
     },
     // watch some files status
     watch: {
       js: {
-        files: ['common/js/src/*.js'],
+        files: ['<%= uglify.scripts.src %>'],
         tasks: ['uglify', 'concat']
       },
       css: {
-        files: ['common/css/src/**/*.scss'],
+        files: ['<%= globals.assetDir %>/css/src/**/*.scss'],
         tasks: ['compassMultiple']
       }
     }
