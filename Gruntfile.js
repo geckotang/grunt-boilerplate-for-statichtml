@@ -1,9 +1,9 @@
 module.exports = function(grunt){
   var path = require('path');
-  var matchde = require('matchdep');
+  var matchdep = require('matchdep');
 
   // load all grunt-plugin tasks
-  matchde.filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  matchdep.filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // init config
   grunt.initConfig({
