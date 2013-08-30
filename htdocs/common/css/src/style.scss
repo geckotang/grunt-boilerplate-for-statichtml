@@ -1,0 +1,13 @@
+/*
+# style.scss
+
+partialを読み込むscss
+
+*/
+@charset "utf-8";
+@import "partial/abstract";
+@import "partial/setting";
+@import "partial/reset";
+@import "partial/base";
+@import "partial/layout";
+@import "partial/module";

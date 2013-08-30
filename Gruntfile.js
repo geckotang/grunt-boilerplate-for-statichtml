@@ -8,9 +8,6 @@ module.exports = function(grunt){
   // init config
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    globals: {
-      assetDir: 'common'
-    },
     // minify javascripts
     uglify: {
       scripts: {
@@ -19,21 +16,21 @@ module.exports = function(grunt){
           banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
         src: [
-          '<%= globals.assetDir %>/js/src/file1.js',
-          '<%= globals.assetDir %>/js/src/file2.js',
-          '<%= globals.assetDir %>/js/src/file3.js'
+          'htdocs/common/js/src/file1.js',
+          'htdocs/common/js/src/file2.js',
+          'htdocs/common/js/src/file3.js'
         ],
-        dest: '<%= globals.assetDir %>/js/src/script.min.js'
+        dest: 'htdocs/common/js/src/script.min.js'
       }
     },
     // concat javascripts
     concat: {
       scripts: {
         src: [
-          '<%= globals.assetDir %>/js/vendor/jquery-1.10.2.min.js',
+          'htdocs/common/js/vendor/jquery-1.10.2.min.js',
           '<%= uglify.scripts.dest %>'
         ],
-        dest: '<%= globals.assetDir %>/js/all.js'
+        dest: 'htdocs/common/js/all.js'
       }
     },
     // build stylesheet docs
@@ -45,11 +42,11 @@ module.exports = function(grunt){
             name: 'styledocco'
           },
           template: {
-           include: ['<%= globals.assetDir %>/css/src/doc-preview.js']
+           include: ['htdocs/common/css/src/doc-preview.js']
           },
         },
-        src: '<%= globals.assetDir %>/css/src/**/*.scss',
-        dest: '<%= globals.assetDir %>-docs'
+        src: 'htdocs/common/css/src/**/*.scss',
+        dest: 'htdocs/common-docs'
       }
     },
     // clean document directory
@@ -57,8 +54,8 @@ module.exports = function(grunt){
     // compile scss to css
     compassMultiple: {
       options: {
-        config: '<%= globals.assetDir %>/css/src/config.rb',
-        sassDir: '<%= globals.assetDir %>/css/src/'
+        config: 'htdocs/common/css/src/config.rb',
+        sassDir: 'htdocs/common/css/src/'
       },
       common: {}
     },
@@ -69,7 +66,7 @@ module.exports = function(grunt){
         tasks: ['uglify', 'concat']
       },
       css: {
-        files: ['<%= globals.assetDir %>/css/src/**/*.scss'],
+        files: ['htdocs/common/css/src/**/*.scss'],
         tasks: ['compassMultiple']
       }
     }
