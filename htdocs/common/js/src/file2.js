@@ -1,4 +1,4 @@
-/*
+/*!
  *file2.js
  * */
 $(function(){

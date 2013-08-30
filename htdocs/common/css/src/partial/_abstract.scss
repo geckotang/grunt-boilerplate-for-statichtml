@@ -1,0 +1,94 @@
+/*
+# _abstract.scss
+
+用途：mixinやfunctionを管理するファイルです。
+
+*/
+
+
+/*
+# mixin
+
+mixiについて書いていきます
+
+*/
+
+
+/*
+## プロパティにvendor prefixをつける
+
+- `$property` prefixを付けたいCSSプロパティ
+- `$property-value` そのプロパティの値
+
+<pre>
+$support-webkit: true;
+$support-mozilla: false;
+$support-opera: false;
+$support-ms: false;
+.foo {
+	@include prefixed(background-size, 10px 5px);
+}
+</pre>
+
+*/
+
+@mixin prefixed($property, $property-value...) {
+  @if $support-webkit { -webkit-#{$property}: #{$property-value};}
+  @if $support-mozilla { -moz-#{$property}: #{$property-value};}
+  @if $support-opera { -o-#{$property}: #{$property-value};}
+  @if $support-ms { -ms-#{$property}: #{$property-value};}
+  #{$property}: #{$property-value};
+}
+
+/*
+## プロパティにvendor prefixをつける
+
+- `$property` prefixを付けたいCSSプロパティ
+- `$property-value` そのプロパティの値
+
+<pre>
+$support-webkit: true;
+$support-mozilla: false;
+$support-opera: false;
+$support-ms: false;
+.foo {
+	@include prefixed(background-size, 10px 5px);
+}
+</pre>
+
+*/
+
+@mixin prefixed($property, $property-value...) {
+  @if $support-webkit { -webkit-#{$property}: #{$property-value};}
+  @if $support-mozilla { -moz-#{$property}: #{$property-value};}
+  @if $support-opera { -o-#{$property}: #{$property-value};}
+  @if $support-ms { -ms-#{$property}: #{$property-value};}
+  #{$property}: #{$property-value};
+}
+
+
+/*
+# function
+
+functionについて書いていきます
+
+*/
+
+/*
+## 基本のフォントサイズをもとにemを求める
+
+- `$size` 希望するフォントサイズ(px相当)
+- `$currentSize` ベースになるフォントサイズ($basefontSizeを別に指定すること)
+
+<pre>
+$basefontSize: 14;
+.foo {
+	font-size: font-size(12);
+}
+</pre>
+
+*/
+@function font-size($size, $currentSize:$basefontSize){
+  @return $size / $currentSize * 1em;
+}
+

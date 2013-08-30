@@ -10,27 +10,39 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
     // minify javascripts
     uglify: {
-      scripts: {
+      script: {
         options: {
           preserveComments: 'some',
           banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
+        src: ['<%= concat.script.dest%>'],
+        dest: 'htdocs/common/js/script.min.js'
+      }
+    },
+    // concat javascripts
+    concat: {
+      // ライブラリやプラグイン
+      lib: {
+        src: [
+          'htdocs/common/js/vendor/jquery-1.10.2.js'
+        ],
+        dest: 'htdocs/common/js/lib.js'
+      },
+      // minify済みのライブラリやプラグイン
+      minlib: {
+        src: [
+          'htdocs/common/js/vendor/jquery-1.10.2.min.js'
+        ],
+        dest: 'htdocs/common/js/lib.min.js'
+      },
+      // 作成したJavaScript
+      script: {
         src: [
           'htdocs/common/js/src/file1.js',
           'htdocs/common/js/src/file2.js',
           'htdocs/common/js/src/file3.js'
         ],
-        dest: 'htdocs/common/js/src/script.min.js'
-      }
-    },
-    // concat javascripts
-    concat: {
-      scripts: {
-        src: [
-          'htdocs/common/js/vendor/jquery-1.10.2.min.js',
-          '<%= uglify.scripts.dest %>'
-        ],
-        dest: 'htdocs/common/js/all.js'
+        dest: 'htdocs/common/js/script.js'
       }
     },
     // build stylesheet docs
@@ -62,8 +74,8 @@ module.exports = function(grunt){
     // watch some files status
     watch: {
       js: {
-        files: ['<%= uglify.scripts.src %>'],
-        tasks: ['uglify', 'concat']
+        files: ['<%= concat.script.src%>'],
+        tasks: ['concat:lib', 'concat:script']
       },
       css: {
         files: ['htdocs/common/css/src/**/*.scss'],
@@ -75,8 +87,9 @@ module.exports = function(grunt){
   // resiter tasks
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('build', [
-    'uglify',
-    'concat',
+    'concat:minlib',
+    'concat:script',
+    'uglify:script',
     'compassMultiple',
     'clean',
     'styleguide'

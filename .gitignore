@@ -14,11 +14,19 @@ Icon
 .Spotlight-V100
 .Trashes
 
-### SASS ###
-### SASS Ignores - "Sassy CSS" http://sass-lang.com/
-*.sass-cache
-
 ### Ruby ###
 .bundle
 vendor
 
+### SASS ###
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+### CSS ###
+htdocs/common/css/style.css
+
+### JavaScript ###
+htdocs/common/js/script.js
+htdocs/common/js/script.min.js
+htdocs/common/js/lib.js
+htdocs/common/js/lib.min.js
