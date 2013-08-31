@@ -78,7 +78,7 @@ functionについて書いていきます
 ## 基本のフォントサイズをもとにemを求める
 
 - `$size` 希望するフォントサイズ(px相当)
-- `$currentSize` ベースになるフォントサイズ($basefontSizeを別に指定すること)
+- `$currentSize` ベースになるフォントサイズ($base-font-sizeを別に指定すること)
 
 <pre>
 $basefontSize: 14;
@@ -88,7 +88,7 @@ $basefontSize: 14;
 </pre>
 
 */
-@function font-size($size, $currentSize:$basefontSize){
+@function font-size($size, $currentSize:$base-font-size){
   @return $size / $currentSize * 1em;
 }
 

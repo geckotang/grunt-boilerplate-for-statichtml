@@ -1,0 +1,26 @@
+/*
+# _base.scss
+
+用途：サイト全体のフォントに関する指定や、リンクカラーなどの指定を行います。 また、要素名を使ってスタイルを指定する場合もここに記述します。
+
+*/
+@import 'compass';
+
+body {
+	color: $base-color;
+	font-size: $base-font-size * 1px;
+	font-family: #{$base-font-family};
+	line-height: $base-line-height;
+}
+
+a {
+	color: $base-link-color;
+}
+
+img {
+	vertical-align: top;
+}
+
+label {
+	cursor: pointer;
+}

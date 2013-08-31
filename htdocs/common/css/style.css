@@ -14,6 +14,12 @@
 
 */
 /*
+# _setting.scss
+
+用途：サイト全体で利用されるグローバル変数を一括で管理します。
+
+*/
+/*
 # _abstract.scss
 
 用途：mixinやfunctionを管理するファイルです。
@@ -69,7 +75,7 @@ functionについて書いていきます
 ## 基本のフォントサイズをもとにemを求める
 
 - `$size` 希望するフォントサイズ(px相当)
-- `$currentSize` ベースになるフォントサイズ($basefontSizeを別に指定すること)
+- `$currentSize` ベースになるフォントサイズ($base-font-sizeを別に指定すること)
 
 <pre>
 $basefontSize: 14;
@@ -77,5 +83,99 @@ $basefontSize: 14;
 	font-size: font-size(12);
 }
 </pre>
+
+*/
+/*
+# _reset.scss
+
+用途：Normalizeで均一化後、専用に追加でresetを書いています。
+
+*/
+/*
+# _base.scss
+
+用途：サイト全体のフォントに関する指定や、リンクカラーなどの指定を行います。 また、要素名を使ってスタイルを指定する場合もここに記述します。
+
+*/
+body {
+  color: #595959;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: #00259b;
+}
+
+img {
+  vertical-align: top;
+}
+
+label {
+  cursor: pointer;
+}
+
+/*
+# _layout.scss
+
+用途：サイトのヘッダーやフッターなど、大枠の部分
+
+*/
+/*
+#共通ヘッダ
+
+```
+<div class="mod-header">
+	<h1>すごいサイト</h1>
+	<h2>すごいサイトの説明</h2>
+</div>
+```
+
+*/
+.mod-header {
+  width: 100%;
+  height: 200px;
+  background-color: #111;
+}
+.mod-header h1 {
+  font-size: 1.125em;
+  color: #fff;
+}
+.mod-header h2 {
+  font-size: 0.875em;
+  color: #ccc;
+}
+
+/*
+#共通フッタ
+
+```
+<div class="mod-footer">
+	<p class="mod-copyright"><small>copyright all right reserved...</small></p>
+</div>
+```
+
+*/
+.mod-footer {
+  width: 100%;
+  height: 100px;
+  background-color: #333;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+.mod-copyright {
+  color: #fff;
+  font-size: 1.25em;
+}
+
+/*
+# _module.scss
+
+用途：サイト内共通のモジュールをこのファイルで記述します。
 
 */

@@ -1,0 +1,22 @@
+/*
+# _setting.scss
+
+用途：サイト全体で利用されるグローバル変数を一括で管理します。
+
+*/
+
+ //Path
+$path-img: '/static/img';
+
+ //DataURI
+$dataURI-logo: "data:image/png;base64,xxxxxxxxxxxxxxxx...";
+
+ //Base Style
+$base-color: #595959;
+$base-link-color: #00259b;
+$base-font-size: 16;
+$base-font-family: 'Arial, sans-serif';
+$base-line-height: 1.5;
+$base-mod-margin: 20px;
+
+
