@@ -5,6 +5,15 @@
 
 */
 
+ // IE8のサポート
+$legacy-support-for-ie8: true;
+ // 古いFirefoxのサポート
+$legacy-support-for-mozilla: false;
+ // Operaのサポート
+$experimental-support-for-opera: false;
+ // Wevkitグラデ
+$support-for-original-webkit-gradients: false;
+
  //Path
 $path-img: '/static/img';
 

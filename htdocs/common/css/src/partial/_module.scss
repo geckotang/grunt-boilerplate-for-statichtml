@@ -5,6 +5,8 @@
 
 */
 
+@import "compass";
+
 /*
 #ボタン
 
@@ -38,6 +40,8 @@ Modenizerを使用して状況に応じた見た目を作成しています。
 */
 
 .mod-button {
+	$path-mod-button: "mod-button/ico_01.png";
+	$path-mod-button--hover: "mod-button/ico_01_on.png";
 	color: #1a1a1a;
 	text-decoration: none;
 	font-size: 14px;
@@ -45,11 +49,10 @@ Modenizerを使用して状況に応じた見た目を作成しています。
 	background-color: #f2f2f2;
 	background-repeat: no-repeat, repeat-x;
 	background-position: 20px 50%;
-	background-image: url(/common/img/mod-button/ico_01.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%, whitesmoke), color-stop(100%, #efefef));
-	background-image: url(/common/img/mod-button/ico_01.png), -webkit-linear-gradient(top, whitesmoke 0%, #efefef 100%);
-	background-image: url(/common/img/mod-button/ico_01.png), -moz-linear-gradient(top, whitesmoke 0%, #efefef 100%);
-	background-image: url(/common/img/mod-button/ico_01.png), -o-linear-gradient(top, whitesmoke 0%, #efefef 100%);
-	background-image: url(/common/img/mod-button/ico_01.png), linear-gradient(to bottom, whitesmoke 0%, #efefef 100%);
+	@include background-image(
+		image-url($path-mod-button),
+		linear-gradient(top, whitesmoke, #efefef)
+	);
 	padding: 0.5em 20px 0.5em 28px;
 	border-radius: 2px;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
@@ -57,22 +60,19 @@ Modenizerを使用して状況に応じた見た目を作成しています。
 	&:hover {
 		color: #999999;
 		text-decoration: none;
-		background-image: url(/common/img/mod-button/ico_01_on.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, whitesmoke));
-		background-image: url(/common/img/mod-button/ico_01_on.png), -webkit-linear-gradient(top, #f8f8f8 0%, whitesmoke 100%);
-		background-image: url(/common/img/mod-button/ico_01_on.png), -moz-linear-gradient(top, #f8f8f8 0%, whitesmoke 100%);
-		background-image: url(/common/img/mod-button/ico_01_on.png), -o-linear-gradient(top, #f8f8f8 0%, whitesmoke 100%);
-		background-image: url(/common/img/mod-button/ico_01_on.png), linear-gradient(to bottom, #f8f8f8 0%, whitesmoke 100%);
-		-webkit-background-size: auto auto, 100% auto;
-		-o-background-size: auto auto, 100% auto;
-		background-size: auto auto, 100% auto;
+		@include background-image(
+			image-url($path-mod-button--hover),
+			linear-gradient(top, #f8f8f8, whitesmoke)
+		);
+		@include background-size( auto auto, 100% auto);
 	}
 	.no-multiplebgs & {
 		background-repeat: no-repeat;
-		background-image: url(/common/img/mod-button/ico_01.png);
+		background-image: image-url($path-mod-button);
 	}
 	.no-multiplebgs &:hover {
 		background-repeat: no-repeat;
-		background-image: url(/common/img/mod-button/ico_01_on.png);
+		background-image: image-url($path-mod-button--hover);
 	}
 	.no-boxshadow & {
 		border: 1px solid #e4e4e4;

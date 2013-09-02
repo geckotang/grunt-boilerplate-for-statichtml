@@ -67,14 +67,24 @@ module.exports = function(grunt){
       }
     },
     // clean document directory
-    clean: ['<%= styleguide.styledocco.dest %>'],
+    clean: [
+      '<%= styleguide.styledocco.dest %>',
+      'htdocs/common/css/style.css'
+    ],
     // compile scss to css
-    compassMultiple: {
-      options: {
-        config: 'htdocs/common/css/src/config.rb',
-        sassDir: 'htdocs/common/css/src'
+    compass: {
+      dev: {
+        options: {
+          config: 'compass_config.rb',
+          environment: 'development'
+        }
       },
-      common: {}
+      prod: {
+        options: {
+          config: 'compass_config.rb',
+          environment: 'production'
+        }
+      }
     },
     // watch some files status
     watch: {
@@ -84,7 +94,7 @@ module.exports = function(grunt){
       },
       css: {
         files: ['htdocs/common/css/src/**/*.scss'],
-        tasks: ['compassMultiple']
+        tasks: ['compass:dev']
       }
     }
   });
@@ -95,8 +105,8 @@ module.exports = function(grunt){
     'concat:minlib',
     'concat:script',
     'uglify:script',
-    'compassMultiple',
     'clean',
-    'styleguide'
+    'styleguide',
+    'compass:prod'
   ]);
 };

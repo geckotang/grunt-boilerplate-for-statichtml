@@ -1,20 +1,19 @@
 /*
-# style.scss
-
-分割したファイルやフレームワークなどを読み込むscss
-詳しくはそれぞれのページを参照してください
-
-- [partial/_setting](partial-setting.html)
-- [partial/_abstract](partial-abstract.html)
-- [partial/_reset](partial-reset.html)
-- [partial/_base](partial-base.html)
-- [partial/_layout](partial-layout.html)
-- [partial/_module](partial-module.html)
-
+ # style.scss
+ 分割したファイルやフレームワークなどを読み込むscss
+ 詳しくはそれぞれのページを参照してください
+ - [partial/_setting](partial-setting.html)
+ - [partial/_abstract](partial-abstract.html)
+ - [partial/_reset](partial-reset.html)
+ - [partial/_base](partial-base.html)
+ - [partial/_layout](partial-layout.html)
+ - [partial/_module](partial-module.html)
 */
+
 @charset "utf-8";
 @import "partial/setting";
 @import "partial/abstract";
+@import "../vendor/_normalize";
 @import "partial/reset";
 @import "partial/base";
 @import "partial/layout";

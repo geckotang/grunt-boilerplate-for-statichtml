@@ -14,11 +14,11 @@
     "matchdep": "*",
     "styledocco": "~0.6.3",
     "grunt-contrib-watch": "*",
-    "grunt-compass-multiple": "~0.2.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-styleguide": "~0.2.6",
     "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-compass": "~0.5.0"
   },
   "dependencies": {}
 }
