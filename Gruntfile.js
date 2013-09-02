@@ -57,7 +57,12 @@ module.exports = function(grunt){
            include: ['htdocs/common/css/src/doc-preview.js']
           },
         },
-        src: 'htdocs/common/css/src/**/*.scss',
+        src: [
+          // サブディレクトリも含めドキュメント化
+          'htdocs/common/css/**/*.scss',
+          // ライブラリなどは除外
+          '!htdocs/common/css/vendor/**/*.scss'
+        ],
         dest: 'htdocs/common-docs'
       }
     },
@@ -67,7 +72,7 @@ module.exports = function(grunt){
     compassMultiple: {
       options: {
         config: 'htdocs/common/css/src/config.rb',
-        sassDir: 'htdocs/common/css/src/'
+        sassDir: 'htdocs/common/css/src'
       },
       common: {}
     },
