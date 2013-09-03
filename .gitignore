@@ -23,9 +23,11 @@ vendor
 *.sass-cache
 
 ### CSS ###
+!htdocs/common/css/vendor/
 htdocs/common/css/style.css
 
 ### JavaScript ###
+!htdocs/common/js/vendor/
 htdocs/common/js/script.js
 htdocs/common/js/script.min.js
 htdocs/common/js/lib.js
