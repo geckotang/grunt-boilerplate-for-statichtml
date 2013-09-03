@@ -67,10 +67,10 @@ module.exports = function(grunt){
       }
     },
     // clean document directory
-    clean: [
-      '<%= styleguide.styledocco.dest %>',
-      'htdocs/common/css/style.css'
-    ],
+    clean: {
+      css: 'htdocs/common/css/style.css',
+      styleguide: '<%= styleguide.styledocco.dest %>'
+    },
     // compile scss to css
     compass: {
       dev: {
@@ -100,7 +100,24 @@ module.exports = function(grunt){
   });
 
   // resiter tasks
+
   grunt.registerTask('default', ['watch']);
+
+  grunt.registerTask('build_css', [
+    'clean:css',
+    'compass:dev'
+  ]);
+
+  grunt.registerTask('build_mincss', [
+    'clean:css',
+    'compass:prod'
+  ]);
+
+  grunt.registerTask('build_guide', [
+    'clean:styleguide',
+    'styleguide'
+  ]);
+
   grunt.registerTask('build', [
     'concat:minlib',
     'concat:script',
@@ -109,4 +126,5 @@ module.exports = function(grunt){
     'styleguide',
     'compass:prod'
   ]);
+
 };
